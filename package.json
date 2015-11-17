@@ -1,0 +1,33 @@
+{
+  "name": "ig_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist && webpack --progress --profile --colors",
+    "server": "node server",
+    "test": "mocha",
+    "start": "rm -rf dist && webpack --progress --colors --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/WebCloud/ig_test.git"
+  },
+  "author": "Vinicius Dallacqua",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebCloud/ig_test/issues"
+  },
+  "homepage": "https://github.com/WebCloud/ig_test#readme",
+  "devDependencies": {
+    "babel-core": "^5.8.33",
+    "babel-loader": "^5.3.3",
+    "chai": "^3.4.1",
+    "chai-as-promised": "^5.1.0",
+    "express": "^4.13.3",
+    "html-webpack-plugin": "^1.6.2",
+    "mocha": "^2.3.4",
+    "phantomjs": "^1.9.18",
+    "webpack": "^1.12.2"
+  }
+}

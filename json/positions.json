@@ -1,0 +1,30 @@
+{
+   "markets":[
+      {"name":"GBP/USD","id":"GU"},
+      {"name":"EUR/USD","id":"EU"},
+      {"name":"EUR/GBP","id":"EG"},
+      {"name":"EUR/JPY","id":"EJ"},
+      {"name":"FTSE 100","id":"F100"},
+      {"name":"Vodafone","id":"VOD"},
+      {"name":"Italy 40","id":"ITA"},
+      {"name":"Light Crude","id":"CRU"},
+      {"name":"Germany 30","id":"GER"}
+   ],
+   "positions":[
+      {"marketId":"F100","size":10,"level":6004.5,"openLevel": 6002.5},
+      {"marketId":"GU","size":1,"level":1.998,"openLevel": 1.86},
+      {"marketId":"EG","size":9,"level":1.275,"openLevel": 1.2456},
+      {"marketId":"EJ","size":5,"level":1.944,"openLevel": 2.001},
+      {"marketId":"VOD","size":34,"level":105.8,"openLevel": 108.56},
+      {"marketId":"ITA","size":6,"level":4306.3,"openLevel": 4002.5},
+      {"marketId":"EU","size":3,"level":1.745,"openLevel": 2.193},
+      {"marketId":"CRU","size":1,"level":105.3,"openLevel": 105.3},
+      {"marketId":"F100","size":7,"level":207.2,"openLevel": 2010.2},
+      {"marketId":"ITA","size":2,"level":1254.6,"openLevel": 1254},
+      {"marketId":"VOD","size":0.1,"level":13407.4,"openLevel": 13410.2},
+      {"marketId":"F100","size":0.5,"level":762.5,"openLevel": 762.4},
+      {"marketId":"CRU","size":13,"level":600.5,"openLevel": 600},
+      {"marketId":"F100","size":3,"level":12086.3,"openLevel": 12086.27},
+      {"marketId":"EG","size":9,"level":7508.4,"openLevel": 7509}
+   ]
+}
