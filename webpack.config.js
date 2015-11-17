@@ -9,7 +9,7 @@ module.exports = {
   target: 'web',
   cache: true,
   entry: {
-    view: path.join(srcPath, 'view.js')
+    view: path.join(path.join(srcPath, 'js'), 'view.js')
   },
   resolve: {
     root: srcPath,
