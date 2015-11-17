@@ -8,9 +8,9 @@ const fetchData = function(resolve, reject) {
   }, (reason)=> {
     reject(reason);
   }).then(({markets, positions})=> {
-    markets = markets.map((market)=> {
+    markets = markets.map(({name, id: marketId})=> {
       let marketPositions = positions.filter((position) => {
-        return position.marketId == market.id;
+        return position.marketId == marketId;
       }).map(({size, openLevel, level})=> {
         return {
           size,
@@ -21,7 +21,7 @@ const fetchData = function(resolve, reject) {
       });
 
       return {
-        name: market.name,
+        name: name,
         marketPositions
       };
     });
