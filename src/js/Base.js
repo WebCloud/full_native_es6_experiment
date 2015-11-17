@@ -4,13 +4,14 @@ export default class Base {
   constructor(itemTemplate = '', viewTemplate = '') {
     this.itemTemplate = itemTemplate;
     this.viewTemplate = viewTemplate;
+    this.viewData = [];
   }
 
   getParsedViewData() {
     let regex = /<(name|size|openLevel|level|profit)>/gi;
 
     return new Promise((resolve, reject)=> {
-      core.getPositions().then((markets)=> {
+      this.getViewData().then((markets)=> {
         resolve(
           markets.map(({name, marketPositions: positions})=> {
             return positions.reduce((previous, current)=> {
@@ -30,6 +31,20 @@ export default class Base {
       }, (reason)=> {
         reject(reason);
       });
+    });
+  }
+
+  getViewData() {
+    return new Promise((resolve, reject)=> {
+      if(this.viewData.length == 0){
+        core.getPositions().then((markets)=> {
+          this.viewData = markets;
+
+          resolve(markets);
+        }, reject);
+      } else {
+        resolve(this.viewData);
+      };
     });
   }
 }
