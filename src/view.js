@@ -1,24 +1,43 @@
 import core from './core';
 
-const table = function(){
-  core.getPositions().then((markets)=> {
-    let target = document.querySelector('.target');
+const getParsedViewData = function(format = '') {
+  let regex = /name|size|openLevel|level|profit/gi;
 
-    markets = markets.map(({name, marketPositions: positions})=> {
-      return positions.reduce((previous, {size, openLevel, level, profit})=> {
-        return `
-          ${previous}
-          <tr>
-            <td>${name}</td>
-            <td>${size}</td>
-            <td>${openLevel}</td>
-            <td>${level}</td>
-            <td>${profit}</td>
-          </tr>
-        `;
-      }, '');
+  return new Promise((resolve, reject)=> {
+    core.getPositions().then((markets)=> {
+      resolve(
+        markets.map(({name, marketPositions: positions})=> {
+        return positions.reduce((previous, current)=> {
+          current.name = name;
+
+          return `
+            ${previous}
+            ${format.replace(regex, (match)=> {
+              return current[match];
+            })}
+          `;
+        }, '');
+        })
+        .join('')
+      );
+    }, (reason)=> {
+      reject(reason);
     });
+  });
+};
 
+const table = function() {
+  let target = document.querySelector('.target');
+
+  getParsedViewData(`
+    <tr>
+      <td>name</td>
+      <td>size</td>
+      <td>openLevel</td>
+      <td>level</td>
+      <td>profit</td>
+    </tr>
+  `).then((formattedMarkets)=> {
     target.innerHTML = `
       <thead>
         <tr>
@@ -30,7 +49,7 @@ const table = function(){
         <tr>
       </thead>
       <tbody>
-        ${markets.join('')}
+        ${formattedMarkets}
       </tbody>
     `;
   });
