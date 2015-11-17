@@ -1,6 +1,12 @@
 {
   "browser": true,
   "jquery": true,
+  "predef": [
+    "document",
+    "window",
+    "-Promise",
+    "QUnit"
+  ],
   "node": true,
   "esnext": true,
   "camelcase": true,

@@ -3,13 +3,15 @@
 var webpack = require('webpack'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   path = require('path'),
-  srcPath = path.join(__dirname, 'src');
+  srcPath = path.join(__dirname, 'src'),
+  jsPath = path.join(path.join(srcPath, 'js'));
 
 module.exports = {
   target: 'web',
   cache: true,
   entry: {
-    view: path.join(path.join(srcPath, 'js'), 'view.js')
+    view: path.join(jsPath, 'view.js'),
+    test: path.join(jsPath, 'test.js')
   },
   resolve: {
     root: srcPath,
@@ -32,6 +34,10 @@ module.exports = {
     ]
   },
   plugins: [
+    new HtmlWebpackPlugin({  // Also generate a test.html
+      filename: 'test.html',
+      template: 'src/test.html'
+    }),
     new HtmlWebpackPlugin({
       inject: false,
       template: 'src/index.html'
