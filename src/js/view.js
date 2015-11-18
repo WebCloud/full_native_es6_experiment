@@ -1,4 +1,5 @@
 import Table from './Table';
+import '../css/view.css';
 
 let tableItemTemplate,
     tableViewTemplate,
