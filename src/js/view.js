@@ -28,6 +28,15 @@ tableViewTemplate = `
   <tbody>
     <formattedItems>
   </tbody>
+  <tfoot>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Total Profit/Loss <span><totalProfit></span></td>
+    </tr>
+  </tfoot>
 `;
 
 table = new Table(tableItemTemplate, tableViewTemplate);

@@ -47,4 +47,16 @@ export default class Base {
       };
     });
   }
+
+  getTotalProfit() {
+    let totalProfit = 0;
+
+    totalProfit = this.viewData.reduce((previous, {marketPositions: positions})=> {
+      return previous + positions.reduce((prev, {profit})=> {
+        return prev + profit;
+      }, 0);
+    }, 0);
+
+    return totalProfit;
+  }
 }

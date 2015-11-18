@@ -28,6 +28,15 @@ viewTemplate = `
   <tbody>
     <formattedItems>
   </tbody>
+  <tfoot>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Total Profit/Loss <span><totalProfit></span></td>
+    </tr>
+  </tfoot>
 `;
 
 base = new Base(itemTemplate, viewTemplate);
@@ -44,7 +53,7 @@ QUnit.test('base.getParsedViewData() returns data parsed against the itemTemplat
 });
 
 QUnit.test('table.render parses the viewData into the viewTemplate', function(assert) {
-  assert.expect(1);
+  assert.expect(2);
   let done = assert.async();
 
   let hiddenTarget = document.createElement('table');
@@ -52,6 +61,7 @@ QUnit.test('table.render parses the viewData into the viewTemplate', function(as
   hiddenTarget.style.display = 'none';
   hiddenTarget.addEventListener('DOMSubtreeModified', ()=>{
     assert.ok(document.querySelectorAll('.hidden-target th').length > 0);
+    assert.ok(document.querySelectorAll('.hidden-target tfoot td span').length > 0);
     done();
   });
   document.body.appendChild(hiddenTarget);

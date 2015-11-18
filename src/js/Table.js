@@ -11,7 +11,8 @@ export default class Table extends Base {
 
       this.getParsedViewData().then((formattedMarkets)=> {
         target.innerHTML = this.viewTemplate
-                               .replace('<formattedItems>', formattedMarkets);
+                               .replace('<formattedItems>', formattedMarkets)
+                               .replace('<totalProfit>', this.getTotalProfit());
       });
     };
   }
