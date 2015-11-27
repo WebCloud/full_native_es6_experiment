@@ -1,4 +1,4 @@
-# IG Test
+# Full native ES6 experiment
 
 ## Before running:
 Make sure you have Node.js and NPM installed, then run `npm install`
